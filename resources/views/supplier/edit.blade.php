@@ -11,31 +11,31 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="nama_supplier" class="form-label">Nama Supplier</label>
-            {{-- Menggunakan old() untuk menjaga input jika terjadi error, defaultnya dari $supplier->nama_supplier --}}
-            <input type="text" class="form-control @error('nama_supplier') is-invalid @enderror"
-                   id="nama_supplier" name="nama_supplier"
-                   value="{{ old('nama_supplier', $supplier->nama_supplier) }}" required>
-            @error('nama_supplier')
+            <label for="name" class="form-label">Nama Supplier</label>
+            {{-- Menggunakan old() untuk menjaga input jika terjadi error, defaultnya dari $supplier->name --}}
+            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                   id="name" name="name"
+                   value="{{ old('name', $supplier->name) }}" required>
+            @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <textarea class="form-control @error('alamat') is-invalid @enderror"
-                      id="alamat" name="alamat">{{ old('alamat', $supplier->alamat) }}</textarea>
-            @error('alamat')
+            <label for="address" class="form-label">address</label>
+            <textarea class="form-control @error('address') is-invalid @enderror"
+                      id="address" name="address">{{ old('address', $supplier->address) }}</textarea>
+            @error('address')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="kontak" class="form-label">Kontak (Telp/Email)</label>
-            <input type="text" class="form-control @error('kontak') is-invalid @enderror"
-                   id="kontak" name="kontak"
-                   value="{{ old('kontak', $supplier->kontak) }}">
-            @error('kontak')
+            <label for="phone_number" class="form-label">phone_number (Telp/Email)</label>
+            <input type="text" class="form-control @error('phone_number') is-invalid @enderror"
+                   id="phone_number" name="phone_number"
+                   value="{{ old('phone_number', $supplier->phone_number) }}">
+            @error('phone_number')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>

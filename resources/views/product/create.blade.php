@@ -23,8 +23,8 @@
 
                     {{-- Nama Barang --}}
                     <div class="col-md-6 mb-3">
-                        <label for="nama_barang" class="form-label">Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control" value="{{ old('nama_barang') }}" required>
+                        <label for="name" class="form-label">Nama Barang</label>
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
                     </div>
 
                     {{-- Kategori (Dropdown) --}}
@@ -34,7 +34,7 @@
                             <option value="">Pilih Kategori</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                    {{ $category->nama_kategori }}
+                                    {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -47,28 +47,28 @@
                             <option value="">Pilih Supplier</option>
                             @foreach ($suppliers as $supplier)
                                 <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
-                                    {{ $supplier->nama_supplier }}
+                                    {{ $supplier->name }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
 
                     {{-- Harga Beli --}}
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="harga_beli" class="form-label">Harga Beli (Rp)</label>
                         <input type="number" name="harga_beli" class="form-control" value="{{ old('harga_beli') }}" required min="0">
                     </div>
 
                     {{-- Harga Jual --}}
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="harga_jual" class="form-label">Harga Jual (Rp)</label>
                         <input type="number" name="harga_jual" class="form-control" value="{{ old('harga_jual') }}" required min="0">
-                    </div>
+                    </div>  --}}
 
                     {{-- Stok --}}
                     <div class="col-md-6 mb-3">
-                        <label for="stok" class="form-label">Stok Awal</label>
-                        <input type="number" name="stok" class="form-control" value="{{ old('stok') }}" required min="0">
+                        <label for="stock" class="form-label">Stock Awal</label>
+                        <input type="number" name="stock" class="form-control" value="{{ old('stock') }}" required min="0">
                     </div>
                 </div>
 

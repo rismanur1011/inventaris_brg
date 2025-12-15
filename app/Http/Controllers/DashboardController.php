@@ -20,10 +20,10 @@ class DashboardController extends Controller
         $totalSuppliers = Supplier::count();
 
         // Ambil data produk yang stoknya hampir habis (contoh: stok < 10)
-        $lowStockProducts = Product::where('stok', '<', 10)
-                                   ->orderBy('stok', 'asc')
-                                   ->limit(5)
-                                   ->get();
+        $lowStockProducts = Product::where('stock', '<', 10)
+            ->orderBy('stock', 'asc')
+            ->limit(5)
+            ->get();
 
         return view('dashboard.index', compact(
             'totalProducts',

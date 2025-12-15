@@ -19,6 +19,9 @@ class ProductSeeder extends Seeder
         $supplier = Supplier::get();
         foreach ($categories as $category) {
             Product::create(['name' => 'Gantungan Kunci', 'category_id' => $category->id, 'supplier_id' => $supplier[0]->id, 'stock' => 0]);
+            Product::create(['name' => 'Face Wash', 'category_id' => $category->id, 'supplier_id' => $supplier[0]->id, 'stock' => 0]);
+            Product::create(['name' => 'Cincin', 'category_id' => $category->id, 'supplier_id' => $supplier[0]->id, 'stock' => 0]);
+            Product::create(['name' => 'Mousterizer', 'category_id' => $category->id, 'supplier_id' => $supplier[0]->id, 'stock' => 0]);
         }
     }
 }

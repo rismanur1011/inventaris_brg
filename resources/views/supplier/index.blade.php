@@ -28,10 +28,10 @@
             <tbody>
                 @forelse ($suppliers as $supplier)
                 <tr>
-                    <td>{{ $supplier->id }}</td>
-                    <td>{{ $supplier->nama_supplier }}</td>
-                    <td>{{ $supplier->alamat }}</td>
-                    <td>{{ $supplier->kontak }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $supplier->name }}</td>
+                    <td>{{ $supplier->address }}</td>
+                    <td>{{ $supplier->phone_number }}</td>
                     <td>
                         {{-- Tombol Edit --}}
                         <a href="{{ route('suppliers.edit', $supplier->id) }}" class="btn btn-sm btn-warning">Edit</a>

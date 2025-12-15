@@ -15,48 +15,47 @@ class ProductController extends Controller
     {
         // Eager loading untuk menghindari N+1 query problem
         $products = Product::with(['category', 'supplier'])
-        ->orderBy ('id', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('product.index', compact('products'));
     }
 
     public function edit(Product $product)
-{
-    $categories = Category::all();
-    $suppliers = Supplier::all();
+    {
+        $categories = Category::all();
+        $suppliers = Supplier::all();
 
-    return view('product.edit', compact('product', 'categories', 'suppliers'));
-}
+        return view('product.edit', compact('product', 'categories', 'suppliers'));
+    }
 
-public function update(Request $request, Product $product)
-{
-    $data = $request->all();
+    public function update(Request $request, Product $product)
+    {
+        $data = $request->all();
 
-    $data['harga_beli'] = str_replace(',', '', $request->harga_beli);
-    $data['harga_jual'] = str_replace(',', '', $request->harga_jual);
+        // $data['harga_beli'] = str_replace(',', '', $request->harga_beli);
+        // $data['harga_jual'] = str_replace(',', '', $request->harga_jual);
 
-    // VALIDASI: Menggunakan Facade Validator untuk memvalidasi $data yang SUDAH BERSIH
-    Validator::make($data, [
-        'nama_barang' => 'required|string|max:255',
-        'category_id' => 'required|exists:categories,id',
-        'supplier_id' => 'required|exists:suppliers,id',
-        'harga_beli' => 'required|integer|min:0',
-        'harga_jual' => 'required|integer|min:0',
-        'stok' => 'required|integer|min:0',
-    ])->validate();
+        // VALIDASI: Menggunakan Facade Validator untuk memvalidasi $data yang SUDAH BERSIH
+        Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'supplier_id' => 'required|exists:suppliers,id',
+            // 'harga_beli' => 'required|integer|min:0',
+            // 'harga_jual' => 'required|integer|min:0',
+        ])->validate();
 
-    $product->update($data);
+        $product->update($data);
 
-    return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
-}
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
+    }
 
-public function destroy(Product $product)
-{
-    $product->delete();
-    // Redirect kembali ke halaman index dengan pesan sukses
-    return redirect()->route('products.index')
-                     ->with('success', 'Produk berhasil dihapus!');
-}
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        // Redirect kembali ke halaman index dengan pesan sukses
+        return redirect()->route('products.index')
+            ->with('success', 'Produk berhasil dihapus!');
+    }
 
     public function create()
     {
@@ -69,24 +68,22 @@ public function destroy(Product $product)
     {
         $data = $request->all();
 
-    // 2. Hapus pemisah ribuan (koma) dari harga beli dan harga jual
-    // Fungsi str_replace('', '', $string) akan mengganti koma dengan string kosong
-    $data['harga_beli'] = str_replace(',', '', $request->harga_beli);
-    $data['harga_jual'] = str_replace(',', '', $request->harga_jual);
+        // 2. Hapus pemisah ribuan (koma) dari harga beli dan harga jual
+        // Fungsi str_replace('', '', $string) akan mengganti koma dengan string kosong
 
-        Validator::make ($data, [
-            'nama_barang' => 'required|max:255',
+        Validator::make($data, [
+            'name' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'harga_beli' => 'required|integer|min:0',
-            'harga_jual' => 'required|integer|min:0',
-            'stok' => 'required|integer|min:0',     // CREATE - Simpan data baru
+            // 'harga_beli' => 'required|integer|min:0',
+            // 'harga_jual' => 'required|integer|min:0',
+            'stock' => 'required|integer|min:0',     // CREATE - Simpan data baru
         ])->validate();
 
         Product::create($data);
 
         return redirect()->route('products.index')
-                         ->with('success', 'Produk berhasil ditambahkan.');
+            ->with('success', 'Produk berhasil ditambahkan.');
     }
 
 }

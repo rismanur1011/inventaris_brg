@@ -26,8 +26,8 @@
                             <th>Nama Barang</th>
                             <th>Kategori</th>
                             <th>Supplier</th>
-                            <th>Harga Beli</th>
-                            <th>Harga Jual</th>
+                            {{-- <th>Harga Beli</th>
+                            <th>Harga Jual</th> --}}
                             <th>Stok</th>
                             <th>Aksi</th>
                         </tr>
@@ -36,12 +36,12 @@
                         @forelse ($products as $product)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $product->nama_barang }}</td>  {{-- Relasi Category: Ambil nama_kategori --}}
-                            <td>{{ $product->category->nama_kategori ?? 'N/A' }}</td>  {{-- Relasi Supplier: Ambil nama_supplier --}}
-                            <td>{{ $product->supplier->nama_supplier ?? 'N/A' }}</td>
-                            <td>Rp {{ number_format($product->harga_beli, 0, ',', '.') }}</td>
-                            <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td>
-                            <td>{{ $product->stok }}</td>
+                            <td>{{ $product->name }}</td>  {{-- Relasi Category: Ambil nama_kategori --}}
+                            <td>{{ $product->category->name ?? 'N/A' }}</td>  {{-- Relasi Supplier: Ambil nama_supplier --}}
+                            <td>{{ $product->supplier->name ?? 'N/A' }}</td>
+                            {{-- <td>Rp {{ number_format($product->harga_beli, 0, ',', '.') }}</td>
+                            <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td> --}}
+                            <td>{{ $product->stock }}</td>
                             <td>
                                 {{-- Tombol Edit dan Delete akan kita buat nanti --}}
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning"> Edit </a>

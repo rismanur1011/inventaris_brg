@@ -8,16 +8,16 @@
     <form action="{{ route('suppliers.store') }}" method="POST" class="mt-4">
         @csrf
         <div class="mb-3">
-            <label for="nama_supplier" class="form-label">Nama Supplier</label>
-            <input type="text" class="form-control" id="nama_supplier" name="nama_supplier" value="{{ old('nama_supplier') }}" required>
+            <label for="name" class="form-label">Nama Supplier</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
         </div>
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <textarea class="form-control" id="alamat" name="alamat">{{ old('alamat') }}</textarea>
+            <label for="address" class="form-label">Alamat</label>
+            <textarea class="form-control" id="address" name="address">{{ old('address') }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="kontak" class="form-label">Kontak (Telp/Email)</label>
-            <input type="text" class="form-control" id="kontak" name="kontak" value="{{ old('kontak') }}">
+            <label for="phone_number" class="form-label">Nomor HP</label>
+            <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>

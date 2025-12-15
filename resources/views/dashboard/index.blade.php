@@ -72,6 +72,7 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama Barang</th>
                                     <th>Kategori</th>
                                     <th>Stok Tersisa</th>
@@ -81,10 +82,11 @@
                             <tbody>
                                 @foreach ($lowStockProducts as $product)
                                 <tr>
-                                    <td>{{ $product->nama_barang }}</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $product->name }}</td>
                                     {{-- Asumsi Anda sudah mendefinisikan relasi 'category' di Product Model --}}
-                                    <td>{{ $product->category->nama_kategori ?? 'N/A' }}</td>
-                                    <td><span class="badge bg-danger">{{ $product->stok }}</span></td>
+                                    <td>{{ $product->category->name ?? 'N/A' }}</td>
+                                    <td><span class="badge bg-danger">{{ $product->stock }}</span></td>
                                     <td><a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info">Tambah Stok</a></td>
                                 </tr>
                                 @endforeach
