@@ -20,12 +20,10 @@ public function Supplier() {
     use HasFactory;
 
     protected $fillable=[
-        'nama_barang',
+        'name',
         'category_id',
         'supplier_id',
-        'harga_beli',
-        'harga_jual',
-        'stok',
+        'stock',
     ];
 
     }

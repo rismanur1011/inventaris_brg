@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('suppliers', function (Blueprint $table) {
-           $table->id();
-            $table->string('nama_supplier');
-            $table->text('alamat')->nullable();
-            $table->string('kontak')->nullable(); // Bisa berupa nomor telepon atau email
+            $table->id();
+            $table->string('name',255);
+            $table->string('address');
+            $table->string('phone_number');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

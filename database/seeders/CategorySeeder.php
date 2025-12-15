@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['nama_kategori' => 'Aksesoris']);
-        Category::create(['nama_kategori' => 'Skincare']);
+        Category::create(['name' => 'Aksesoris']);
+        Category::create(['name' => 'Skincare']);
     }
 }

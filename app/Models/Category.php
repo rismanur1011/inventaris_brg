@@ -12,7 +12,7 @@ class Category extends Model
 
     protected $fillable = [
         'id',
-        'nama_kategori'
+        'name'
     ];
 
 

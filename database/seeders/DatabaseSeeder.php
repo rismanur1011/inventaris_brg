@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-
     {
         User::create([
             'name' => 'Rizma Nurfadhila',
@@ -33,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             SupplierSeeder::class,
-            // ProductSeeder::class // Opsional, bisa dibuat untuk data produk dummy
+            ProductSeeder::class
         ]);
     }
 }
