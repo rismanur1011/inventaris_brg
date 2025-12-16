@@ -59,16 +59,19 @@
     </div>
 
     {{-- TABEL DATA STOK RENDAH --}}
-    <div class="row mt-4">
+
+      <div class="row mt-4">
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 bg-light text-white">
                 </div>
                 <div class="card-body">
+                <div class="alert alert-success m-0">
+                        Semua stok produk aman!
                     {{-- $lowStockProducts harus disediakan oleh DashboardController --}}
-                    @if (isset($lowStockProducts) && $lowStockProducts->isEmpty())
+                    {{--   @if (isset($lowStockProducts) && $lowStockProducts->isEmpty())
                         <div class="alert alert-success">Semua stok produk aman!</div>
-                    @elseif (isset($lowStockProducts))
+                     @elseif (isset($lowStockProducts))
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -85,7 +88,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $product->name }}</td>
                                     {{-- Asumsi Anda sudah mendefinisikan relasi 'category' di Product Model --}}
-                                    <td>{{ $product->category->name ?? 'N/A' }}</td>
+                                   {{--  <td>{{ $product->category->name ?? 'N/A' }}</td>
                                     <td><span class="badge bg-danger">{{ $product->stock }}</span></td>
                                     <td><a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info">Tambah Stok</a></td>
                                 </tr>
@@ -94,10 +97,12 @@
                         </table>
                     @else
                         {{-- Tampilkan pesan jika variabel belum didefinisikan (untuk debugging) --}}
-                        <div class="alert alert-warning">Data stok rendah belum dimuat dari Controller.</div>
+                     {{--  <div class="alert alert-warning">Data stok rendah belum dimuat dari Controller.</div>
                     @endif
+
+                </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
