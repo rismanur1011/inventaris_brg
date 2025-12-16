@@ -103,6 +103,25 @@
                     </ul>
 
                     <h6 class="sidebar-heading px-3 mt-4 mb-1 text-white text-uppercase">
+                        TRANSAKSI
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        {{-- Data Produk --}}
+                        <li class="nav-item">
+                            <a class="nav-link text-white @if(request()->routeIs('barang_masuks.*')) active @endif"
+                               href="{{ route('barang_masuks.index') }}">
+                                <i class="fas fa-fw fa-boxes"></i> Barang Masuk
+                            </a>
+                        </li>
+                        {{-- Data Kategori --}}
+                        <li class="nav-item">
+                            <a class="nav-link text-white @if(request()->routeIs('barang_keluars.*')) active @endif"
+                               href="{{ route('barang_keluars.index') }}">
+                                <i class="fas fa-fw fa-tags"></i> Barang Keluar
+                            </a>
+                        </li>
+
+                    <h6 class="sidebar-heading px-3 mt-4 mb-1 text-white text-uppercase">
                         LAIN-LAIN
                     </h6>
                     <ul class="nav flex-column mb-2">

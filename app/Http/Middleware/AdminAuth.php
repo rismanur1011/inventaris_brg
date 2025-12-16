@@ -10,10 +10,17 @@ class AdminAuth
 {
     public function handle(Request $request, Closure $next)
     {
-        if (! Auth::user()->is_admin = 1) {
-            return redirect()->route('login')->with('error', 'Silakan login dulu!');
+        if (! Auth::check()) {
+            return redirect()->route('login')->with('error', 'Anda harus login untuk mengakses halaman ini.');
         }
-        return $next($request);
+
+        if (! Auth::user()-> is_admin != 1) {
+            return redirect('/dashboard')->with('error', 'Anda tidak memiliki akses sebagai Admin!');
+
+
+        }
+         return $next($request);
+
     }
 }
 
